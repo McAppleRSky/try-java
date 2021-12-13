@@ -6,7 +6,7 @@ import java.util.List;
 
 import static java.util.Arrays.sort;
 
-public class _2021_12_13_IntForCast {
+public class _2021_12_13_IntForCast_Binary {
 
     public static void main(String[] args) {
         {
