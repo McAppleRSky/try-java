@@ -3,21 +3,34 @@ package fm.shk;
 import java.util.Scanner;
 
 public class EnumStrWithScan {
-// https://www.yandex.ru/search/?text=java+scanner+next+word&lr=146&clid=1836587
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Input text : ");
-        scanner.next()
+        String text = null;
+        try (Scanner scanner = new Scanner(System.in)) {
+            text = scanner.nextLine();
+        }
 
-        String[] words = .split(" ");
-        int atMin = 0;
-        for (int i=0; i<words.length; i++) {
-            if ( words[i].length() < words[atMin].length() ) {
-                atMin=i;
+        int smallestWordNumber = 0;
+        int smallestWordLength = Integer.MAX_VALUE;
+        int i = smallestWordNumber;
+        String smallestWord = null;
+
+        try (Scanner scanner = new Scanner(text)) {
+            while (scanner.hasNext()) {
+                String currentWord = scanner.next();
+                i += 1;
+                int currentWordLength = currentWord.length();
+                if (currentWordLength < smallestWordLength) {
+                    smallestWordLength = currentWordLength;
+                    smallestWordNumber = i;
+                    smallestWord = currentWord;
+                }
             }
         }
-        System.out.println("The smallest " + atMin+1 + "-st word is :" + words[atMin]);
+
+        System.out.println("The smallest " + smallestWordNumber + "-st word is : " + smallestWord);
     }
 
 }
